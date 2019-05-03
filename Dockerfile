@@ -2,10 +2,7 @@ FROM store/oracle/weblogic:12.2.1.3
 
 MAINTAINER Kumar Saurabh <kumar.saurabh11@wipro.com>
 
-
-
-ENV DOMAIN_HOME="/u01/oracle/user_projects/domains/${DOMAIN_NAME}" \
-    PROPERTIES_FILE_DIR="/u01/oracle/properties"
+ENV DOMAIN_HOME="/u01/oracle/user_projects/domains/${DOMAIN_NAME}"
 
 # Add files required to build this image
 COPY container-scripts/* /u01/oracle/
@@ -22,10 +19,8 @@ RUN chmod +xw /u01/oracle/*.sh && \
     chmod -R a+xwr $DOMAIN_HOME && \
     echo ". $DOMAIN_HOME/bin/setDomainEnv.sh" >> /u01/oracle/.bashrc
 	
-	
 #USER oracle
 #WORKDIR ${DOMAIN_HOME}
-#mkdir -p ${PROPERTIES_FILE_DIR} && \
-#chown -R oracle:oracle ${PROPERTIES_FILE_DIR} && \
-# Define default command to start script.
-CMD ["/u01/oracle/startServer.sh"]
+
+#Define default command to start script.
+CMD ["sh", "-c", "${DOMAIN_HOME}/startWebLogic.sh"]
