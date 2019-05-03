@@ -13,7 +13,7 @@ RUN chmod +xw /u01/oracle/*.sh && \
     chmod +xw /u01/oracle/*.py && \
     chown -R oracle:oracle /u01/oracle/*.sh && \
     chown -R oracle:oracle /u01/oracle/*.py && \
-    /u01/oracle/createAndStartEmptyDomain.sh && \
+    /u01/oracle/createWlsDomain.sh && \
     mkdir -p $DOMAIN_HOME && \
     chown -R oracle:oracle $DOMAIN_HOME && \
     chmod -R a+xwr $DOMAIN_HOME && \
