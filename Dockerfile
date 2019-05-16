@@ -22,11 +22,8 @@ RUN chmod +xw /u01/oracle/*.sh && \
     chown -R oracle:oracle /u01/oracle/sample.war && \
     /u01/oracle/createWlsDomain.sh && \
     /u01/oracle/wlst /u01/oracle/app-deploy.py && \
-    mkdir -p $DOMAIN_HOME && \
     chown -R oracle:oracle $PRE_DOMAIN_HOME && \
     chmod -R a+rwX $PRE_DOMAIN_HOME && \
-    chgrp -R 0 $DOMAIN_HOME && \
-    chmod -R g=u $DOMAIN_HOME && \
     echo ". $DOMAIN_HOME/bin/setDomainEnv.sh" >> /u01/oracle/.bashrc
 	
 #USER oracle
