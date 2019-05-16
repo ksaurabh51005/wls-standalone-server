@@ -4,8 +4,8 @@ MAINTAINER Kumar Saurabh <kumar.saurabh11@wipro.com>
 
 ENV DOMAIN_HOME="/u01/oracle/user_projects/domains/${DOMAIN_NAME}" \
     PRE_DOMAIN_HOME=/u01/oracle/user_projects \
-    APP_NAME="sample" \
-    APP_PKG_FILE="sample.war" \
+    APP_NAME="${APP_NAME:-sample}" \
+    APP_PKG_FILE="${APP_PKG_FILE:-sample.war}" \
     APP_PKG_LOCATION="/u01/oracle"
 
 # Add files required to build this image
